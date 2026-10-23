@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:univ-studymachine:v1:topic_registry",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "prerequisites": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "in_scope": {
+            "type": "boolean"
+          },
+          "importance": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5
+          },
+          "weakness": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "estimated_minutes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "explanation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "definitions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "formulas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "procedures": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "common_mistakes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_id",
+                "location"
+              ]
+            },
+            "minItems": 1
+          },
+          "evidence_kind": {
+            "enum": [
+              "source_backed",
+              "ai_interpretation"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "prerequisites",
+          "in_scope",
+          "estimated_minutes",
+          "explanation",
+          "references",
+          "evidence_kind"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "topics"
+  ]
+}

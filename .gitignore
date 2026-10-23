@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+skill-dist/
+.coverage
+# Private student state is never repository content.
+.studymachine/
+runtime/
+student-data/
+packages/
+.env
+.env.*
+!.env.example

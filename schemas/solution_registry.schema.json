@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:univ-studymachine:v1:solution_registry",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "solutions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "question_id": {
+            "type": "string"
+          },
+          "origin": {
+            "enum": [
+              "official",
+              "student",
+              "answer_key",
+              "ai"
+            ]
+          },
+          "coverage": {
+            "enum": [
+              "complete",
+              "partial",
+              "answer_only",
+              "unresolved"
+            ]
+          },
+          "text": {
+            "type": "string"
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_id",
+                "location"
+              ]
+            },
+            "minItems": 1
+          },
+          "verification": {
+            "enum": [
+              "verified",
+              "unchecked",
+              "conflict",
+              "unresolved"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "question_id",
+          "origin",
+          "coverage",
+          "text",
+          "references",
+          "verification"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "solutions"
+  ]
+}

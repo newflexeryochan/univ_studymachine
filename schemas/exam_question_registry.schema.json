@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:univ-studymachine:v1:exam_question_registry",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "exams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "sitting_id": {
+            "type": "string"
+          },
+          "variant": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "source_id",
+          "sitting_id",
+          "variant"
+        ]
+      }
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "historical",
+              "exercise"
+            ]
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "topic_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "exam_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "parent_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pattern": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "method": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "needs_review": {
+            "type": "boolean"
+          },
+          "is_context": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "number",
+          "kind",
+          "source_id",
+          "location",
+          "text",
+          "topic_ids",
+          "confidence"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "exams",
+    "questions"
+  ]
+}

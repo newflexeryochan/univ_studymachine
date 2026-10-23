@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:univ-studymachine:v1:exam_analysis",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "exam_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sitting_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "question_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topic_id": {
+            "type": "string"
+          },
+          "pattern": {
+            "type": "string"
+          },
+          "exam_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "exam_denominator": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "historical_frequency": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "question_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "question_denominator": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "question_share": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "sitting_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sitting_denominator": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sitting_frequency": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "exam_count",
+          "exam_denominator",
+          "historical_frequency",
+          "question_count"
+        ]
+      }
+    },
+    "patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topic_id": {
+            "type": "string"
+          },
+          "pattern": {
+            "type": "string"
+          },
+          "exam_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "exam_denominator": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "historical_frequency": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "question_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "question_denominator": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "question_share": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "sitting_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sitting_denominator": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sitting_frequency": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "exam_count",
+          "exam_denominator",
+          "historical_frequency",
+          "question_count"
+        ]
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "exam_count",
+    "question_count",
+    "topics"
+  ]
+}

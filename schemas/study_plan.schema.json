@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:univ-studymachine:v1:study_plan",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "mode": {
+      "type": "string"
+    },
+    "conditional": {
+      "type": "boolean"
+    },
+    "days": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "available_minutes": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1440
+          },
+          "buffer_minutes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "topic_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "task": {
+                  "type": "string"
+                },
+                "minutes": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "priority": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "question_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "completion": {
+                  "type": "string"
+                },
+                "review": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "topic_id",
+                "task",
+                "minutes",
+                "priority",
+                "source_ids",
+                "question_ids",
+                "completion",
+                "review"
+              ]
+            }
+          }
+        },
+        "required": [
+          "date",
+          "available_minutes",
+          "buffer_minutes",
+          "blocks"
+        ]
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unscheduled": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topic_id": {
+            "type": "string"
+          },
+          "remaining_minutes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "topic_id",
+          "remaining_minutes",
+          "reason"
+        ]
+      }
+    },
+    "start_date": {
+      "type": "string"
+    },
+    "end_date": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "mode",
+    "conditional",
+    "days"
+  ]
+}

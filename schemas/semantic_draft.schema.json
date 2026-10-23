@@ -1,0 +1,363 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:univ-studymachine:v1:semantic_draft",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "prerequisites": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "in_scope": {
+            "type": "boolean"
+          },
+          "importance": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5
+          },
+          "weakness": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "estimated_minutes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "explanation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "definitions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "formulas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "procedures": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "common_mistakes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_id",
+                "location"
+              ]
+            },
+            "minItems": 1
+          },
+          "evidence_kind": {
+            "enum": [
+              "source_backed",
+              "ai_interpretation"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "prerequisites",
+          "in_scope",
+          "estimated_minutes",
+          "explanation",
+          "references",
+          "evidence_kind"
+        ]
+      }
+    },
+    "exams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "sitting_id": {
+            "type": "string"
+          },
+          "variant": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "source_id",
+          "sitting_id",
+          "variant"
+        ]
+      }
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "historical",
+              "exercise"
+            ]
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "topic_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "exam_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "parent_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pattern": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "method": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "needs_review": {
+            "type": "boolean"
+          },
+          "is_context": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "number",
+          "kind",
+          "source_id",
+          "location",
+          "text",
+          "topic_ids",
+          "confidence"
+        ]
+      }
+    },
+    "solutions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "question_id": {
+            "type": "string"
+          },
+          "origin": {
+            "enum": [
+              "official",
+              "student",
+              "answer_key",
+              "ai"
+            ]
+          },
+          "coverage": {
+            "enum": [
+              "complete",
+              "partial",
+              "answer_only",
+              "unresolved"
+            ]
+          },
+          "text": {
+            "type": "string"
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_id",
+                "location"
+              ]
+            },
+            "minItems": 1
+          },
+          "verification": {
+            "enum": [
+              "verified",
+              "unchecked",
+              "conflict",
+              "unresolved"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "question_id",
+          "origin",
+          "coverage",
+          "text",
+          "references",
+          "verification"
+        ]
+      }
+    },
+    "generated_questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "const": "AI 생성 연습문제"
+          },
+          "text": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_id",
+                "location"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "text",
+          "answer",
+          "explanation",
+          "references"
+        ]
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "localized_documents": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "topics",
+    "exams",
+    "questions",
+    "solutions",
+    "generated_questions",
+    "limitations"
+  ]
+}

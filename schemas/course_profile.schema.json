@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:univ-studymachine:v1:course_profile",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "subject": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "exam_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "timezone": {
+      "type": "string"
+    },
+    "scope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "availability": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 1440
+      }
+    },
+    "language": {
+      "type": "string"
+    },
+    "generation_consent": {
+      "enum": [
+        "yes",
+        "no",
+        null
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "course_id"
+  ]
+}

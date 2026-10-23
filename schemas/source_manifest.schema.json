@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:univ-studymachine:v1:source_manifest",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "original_path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "file_type": {
+            "type": "string"
+          },
+          "category": {
+            "enum": [
+              "syllabus",
+              "lecture_slides",
+              "textbook",
+              "lecture_notes",
+              "assignment",
+              "historical_exam",
+              "official_solution",
+              "student_solution",
+              "answer_key",
+              "formula_sheet",
+              "other"
+            ]
+          },
+          "status": {
+            "enum": [
+              "processed",
+              "partial",
+              "failed"
+            ]
+          },
+          "sections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "location": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "location",
+                "text"
+              ]
+            }
+          },
+          "page_count": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "topic_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "question_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "filename",
+          "original_path",
+          "sha256",
+          "file_type",
+          "category",
+          "status",
+          "sections",
+          "limitations"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "sources"
+  ]
+}

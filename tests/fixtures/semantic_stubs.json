@@ -1,0 +1,182 @@
+{
+  "fixture_kind": "hand-authored semantic test stub; NOT real model output",
+  "course_profile": {
+    "schema_version": 1,
+    "course_id": "synthetic-basic-math",
+    "subject": "합성 기초수학",
+    "exam_at": null,
+    "timezone": "Asia/Seoul",
+    "scope": "일차방정식과 다항함수의 미분",
+    "availability": {
+      "monday": 180, "tuesday": 180, "wednesday": 180, "thursday": 180,
+      "friday": 180, "saturday": 180, "sunday": 180
+    },
+    "preparation": "기본 정의를 읽었고 계산 과정의 검산이 필요함",
+    "target": "주어진 문제의 풀이 근거를 설명하기",
+    "format": "계산형 서술",
+    "instructor_guidance": "추가 강조사항은 제공되지 않음",
+    "language": "ko",
+    "generation_consent": "no"
+  },
+  "topics": [
+    {
+      "id": "t-equation", "title": "일차방정식", "prerequisites": [],
+      "in_scope": true, "importance": 2, "weakness": 0.5, "estimated_minutes": 20,
+      "explanation": "일차방정식은 미지수의 최고차수가 1인 등식이다. 양변에 같은 연산을 적용해 미지수를 고립시키고 원래 식에 대입해 검산한다.",
+      "definitions": ["미지수의 최고차수가 1인 등식"],
+      "formulas": ["ax+b=c에서 a가 0이 아니면 x=(c-b)/a"],
+      "procedures": ["상수항을 양변에서 뺀다.", "0이 아닌 계수로 양변을 나눈다.", "원래 식에 대입하여 검산한다."],
+      "common_mistakes": ["한쪽 변에만 연산을 적용함"],
+      "references": [{"source_id": "course.txt", "location": "fixture-section"}],
+      "evidence_kind": "source_backed"
+    },
+    {
+      "id": "t-derivative", "title": "다항함수의 미분", "prerequisites": ["t-equation"],
+      "in_scope": true, "importance": 2, "weakness": 0.5, "estimated_minutes": 20,
+      "explanation": "다항함수는 각 항을 미분한 뒤 더한다. x^n을 미분할 때 지수 n을 계수에 곱하고 지수를 1 줄인다. 상수항은 0이 된다.",
+      "definitions": ["각 점에서의 순간변화율을 나타내는 도함수"],
+      "formulas": ["(x^n)'=n*x^(n-1)"],
+      "procedures": ["계수와 지수를 확인한다.", "항별 거듭제곱 미분법을 적용한다."],
+      "common_mistakes": ["지수를 줄이지 않음"],
+      "references": [{"source_id": "course.txt", "location": "fixture-section"}],
+      "evidence_kind": "source_backed"
+    }
+  ],
+  "exams": [
+    {"id": "exam-a", "label": "합성 제1회 A형", "source_id": "exam_a.txt", "sitting_id": "sitting-one", "variant": "A"},
+    {"id": "exam-b", "label": "합성 제1회 B형", "source_id": "exam_b.txt", "sitting_id": "sitting-one", "variant": "B"},
+    {"id": "exam-c", "label": "합성 제2회 A형", "source_id": "exam_c.txt", "sitting_id": "sitting-two", "variant": "A"}
+  ],
+  "questions": [
+    {
+      "id": "q-a-context", "number": "1", "kind": "historical", "source_id": "exam_a.txt",
+      "location": "fixture-section", "text": "1. 다음 두 문항에 답하시오.",
+      "topic_ids": ["t-equation", "t-derivative"], "exam_id": "exam-a", "parent_id": null,
+      "pattern": null, "method": null, "confidence": 1, "needs_review": false, "is_context": true
+    },
+    {
+      "id": "q-a1a", "number": "1-(가)", "kind": "historical", "source_id": "exam_a.txt",
+      "location": "fixture-section", "text": "1-(가). 방정식 x+3=5의 해를 구하시오.",
+      "topic_ids": ["t-equation"], "exam_id": "exam-a", "parent_id": "q-a-context",
+      "pattern": "일차방정식 계산", "method": "양변에 같은 연산", "confidence": 1, "needs_review": false
+    },
+    {
+      "id": "q-a1b", "number": "1-(나)", "kind": "historical", "source_id": "exam_a.txt",
+      "location": "fixture-section", "text": "1-(나). 방정식 2x=8의 해를 구하시오.",
+      "topic_ids": ["t-equation"], "exam_id": "exam-a", "parent_id": "q-a-context",
+      "pattern": "일차방정식 계산", "method": "양변에 같은 연산", "confidence": 1, "needs_review": false
+    },
+    {
+      "id": "q-a2", "number": "2", "kind": "historical", "source_id": "exam_a.txt",
+      "location": "fixture-section", "text": "2. 함수 f(x)=x^2의 도함수를 구하시오.",
+      "topic_ids": ["t-derivative"], "exam_id": "exam-a", "parent_id": null,
+      "pattern": "거듭제곱 미분", "method": "거듭제곱 미분법", "confidence": 1, "needs_review": false
+    },
+    {
+      "id": "q-b1", "number": "1", "kind": "historical", "source_id": "exam_b.txt",
+      "location": "fixture-section", "text": "1. 방정식 x-1=2의 해를 구하시오.",
+      "topic_ids": ["t-equation"], "exam_id": "exam-b", "parent_id": null,
+      "pattern": "일차방정식 계산", "method": "양변에 같은 연산", "confidence": 1, "needs_review": false
+    },
+    {
+      "id": "q-c1", "number": "1", "kind": "historical", "source_id": "exam_c.txt",
+      "location": "fixture-section", "text": "1. 함수 f(x)=x^3의 도함수를 구하시오.",
+      "topic_ids": ["t-derivative"], "exam_id": "exam-c", "parent_id": null,
+      "pattern": "거듭제곱 미분", "method": "거듭제곱 미분법", "confidence": 1, "needs_review": false
+    },
+    {
+      "id": "q-exercise", "number": "연습 1", "kind": "exercise", "source_id": "exercise.txt",
+      "location": "fixture-section", "text": "연습 1. 방정식 x+2=9의 해를 구하시오.",
+      "topic_ids": ["t-equation"], "exam_id": null, "parent_id": null,
+      "pattern": "일차방정식 계산", "method": "양변에 같은 연산", "confidence": 1, "needs_review": false
+    }
+  ],
+  "solutions": {
+    "official_complete": [
+      {
+        "id": "s-official-a1a", "question_id": "q-a1a", "origin": "official", "coverage": "complete",
+        "text": "1-(가). 양변에서 3을 빼면 x=2이다. 원래 식에 대입하면 2+3=5이므로 해는 2이다.",
+        "references": [{"source_id": "official_complete.txt", "location": "fixture-section"}], "verification": "verified", "note": "합성 공식 해설 원문"
+      },
+      {
+        "id": "s-official-a1b", "question_id": "q-a1b", "origin": "official", "coverage": "complete",
+        "text": "1-(나). 양변을 2로 나누면 x=4이다. 2*4=8이므로 해는 4이다.",
+        "references": [{"source_id": "official_complete.txt", "location": "fixture-section"}], "verification": "verified", "note": "합성 공식 해설 원문"
+      },
+      {
+        "id": "s-official-a2", "question_id": "q-a2", "origin": "official", "coverage": "complete",
+        "text": "2. 거듭제곱 미분법을 쓰면 f'(x)=2x이다. 지수 2를 계수로 내리고 지수에서 1을 뺀다.",
+        "references": [{"source_id": "official_complete.txt", "location": "fixture-section"}], "verification": "verified", "note": "합성 공식 해설 원문"
+      }
+    ],
+    "official_partial": [
+      {
+        "id": "s-official-a1a", "question_id": "q-a1a", "origin": "official", "coverage": "complete",
+        "text": "1-(가). 양변에서 3을 빼면 x=2이다. 원래 식에 대입하면 2+3=5이므로 해는 2이다.",
+        "references": [{"source_id": "official_partial.txt", "location": "fixture-section"}], "verification": "verified", "note": "완전한 원문 풀이 보존"
+      },
+      {
+        "id": "s-partial-a1b", "question_id": "q-a1b", "origin": "official", "coverage": "partial",
+        "text": "1-(나). 양변을 2로 나눈다.",
+        "references": [{"source_id": "official_partial.txt", "location": "fixture-section"}], "verification": "unchecked", "note": "나머지 계산과 검산이 누락됨"
+      }
+    ],
+    "answer_key": [
+      {
+        "id": "s-key-a1a", "question_id": "q-a1a", "origin": "answer_key", "coverage": "answer_only",
+        "text": "1-(가). 정답: x=2.",
+        "references": [{"source_id": "answer_key.txt", "location": "fixture-section"}], "verification": "verified", "note": "원래 정답 보존"
+      },
+      {
+        "id": "s-key-a1b", "question_id": "q-a1b", "origin": "answer_key", "coverage": "answer_only",
+        "text": "1-(나). 정답: x=4.",
+        "references": [{"source_id": "answer_key.txt", "location": "fixture-section"}], "verification": "verified", "note": "원래 정답 보존"
+      },
+      {
+        "id": "s-key-a2", "question_id": "q-a2", "origin": "answer_key", "coverage": "answer_only",
+        "text": "2. 정답: f'(x)=2x.",
+        "references": [{"source_id": "answer_key.txt", "location": "fixture-section"}], "verification": "verified", "note": "원래 정답 보존"
+      }
+    ],
+    "ai_stub": [
+      {
+        "id": "s-ai-a1a", "question_id": "q-a1a", "origin": "ai", "coverage": "complete",
+        "text": "AI 작성 해설 테스트 스텁: 양변에서 3을 빼면 x=5-3=2이다. 원래 식의 왼쪽은 2+3=5로 오른쪽과 같다.",
+        "references": [{"source_id": "exam_a.txt", "location": "fixture-section"}], "verification": "verified", "note": "사람이 작성한 테스트 스텁, 실제 모델 출력 아님"
+      },
+      {
+        "id": "s-ai-a1b", "question_id": "q-a1b", "origin": "ai", "coverage": "complete",
+        "text": "AI 작성 해설 테스트 스텁: 2는 0이 아니므로 양변을 2로 나누면 x=8/2=4이다. 2*4=8로 원래 식을 만족한다.",
+        "references": [{"source_id": "exam_a.txt", "location": "fixture-section"}], "verification": "verified", "note": "사람이 작성한 테스트 스텁, 실제 모델 출력 아님"
+      },
+      {
+        "id": "s-ai-a2", "question_id": "q-a2", "origin": "ai", "coverage": "complete",
+        "text": "AI 작성 해설 테스트 스텁: x^n의 도함수 n*x^(n-1)에 n=2를 대입하면 2*x^(2-1)=2x이다.",
+        "references": [{"source_id": "exam_a.txt", "location": "fixture-section"}], "verification": "verified", "note": "사람이 작성한 테스트 스텁, 실제 모델 출력 아님"
+      },
+      {
+        "id": "s-ai-b1", "question_id": "q-b1", "origin": "ai", "coverage": "complete",
+        "text": "AI 작성 해설 테스트 스텁: 양변에 1을 더하면 x=3이다. 3-1=2이므로 검산이 성립한다.",
+        "references": [{"source_id": "exam_b.txt", "location": "fixture-section"}], "verification": "verified", "note": "사람이 작성한 테스트 스텁, 실제 모델 출력 아님"
+      },
+      {
+        "id": "s-ai-c1", "question_id": "q-c1", "origin": "ai", "coverage": "complete",
+        "text": "AI 작성 해설 테스트 스텁: 거듭제곱 미분법에서 지수 3을 내리고 1을 빼면 f'(x)=3x^2이다.",
+        "references": [{"source_id": "exam_c.txt", "location": "fixture-section"}], "verification": "verified", "note": "사람이 작성한 테스트 스텁, 실제 모델 출력 아님"
+      },
+      {
+        "id": "s-ai-exercise", "question_id": "q-exercise", "origin": "ai", "coverage": "complete",
+        "text": "AI 작성 해설 테스트 스텁: 양변에서 2를 빼면 x=7이다. 7+2=9이므로 해를 확인했다.",
+        "references": [{"source_id": "exercise.txt", "location": "fixture-section"}], "verification": "verified", "note": "사람이 작성한 테스트 스텁, 실제 모델 출력 아님"
+      }
+    ]
+  },
+  "generated_questions": [
+    {
+      "id": "generated-one", "label": "AI 생성 연습문제",
+      "text": "방정식 x+4=10의 해를 구하시오.", "answer": "x=6",
+      "explanation": "양변에서 4를 빼면 x=10-4=6이다. 6+4=10으로 검산한다. 사람이 작성한 의미 테스트 스텁이며 실제 모델 출력이 아니다.",
+      "references": [{"source_id": "course.txt", "location": "fixture-section"}]
+    }
+  ]
+}
