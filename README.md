@@ -1,5 +1,13 @@
 # Univ StudyMachine
 
+## Beginner downloads / 처음 설치하는 분
+
+- [초보자 설치 매뉴얼 PDF 받기](https://github.com/newflexeryochan/univ_studymachine/releases/download/v0.1.0-preview.1/Univ_StudyMachine_Installation_Guide_KO.pdf)
+- [설치용 univ-studymachine.zip 받기](https://github.com/newflexeryochan/univ_studymachine/releases/download/v0.1.0-preview.1/univ-studymachine.zip)
+- [배포 페이지와 현재 지원 범위 확인](https://github.com/newflexeryochan/univ_studymachine/releases/tag/v0.1.0-preview.1)
+
+This preview includes a Korean beginner guide and a standalone Skill package. Claude upload/runtime compatibility remains unverified, and a ChatGPT Plugin installation link is not provided yet. Use the named installation ZIP rather than GitHub's automatically generated source archive.
+
 Univ StudyMachine is one Agent Skill for turning supplied university course materials into a Korean exam preparation package. Students upload their materials, make one request, and answer one batch of at most eight missing-information questions. The hosting agent executes the remaining workflow, including the semantic authoring step.
 
 The canonical entry point is [SKILL.md](SKILL.md), named `univ-studymachine`. [docs/CONTRACT.md](docs/CONTRACT.md) defines the shared contract. This documentation describes that interface; it does not certify native skill installation, arbitrary-course educational correctness, or ChatGPT Work execution. Work runtime support remains unverified. Local CLI tests, when reported separately, must not be described as native skill or Work tests.
